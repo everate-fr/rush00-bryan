@@ -7,6 +7,8 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { User } from './users/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
+import { EntriesModule } from './entries/entries.module';
+import { Entry } from './entries/entities/entry.entity';
 
 @Module({
 	imports: [
@@ -23,13 +25,14 @@ import { AuthModule } from './auth/auth.module';
 				username: configService.get('DB_USER'),
 				password: configService.get('DB_PASS'),
 				database: configService.get('DB_NAME'),
-				entities: [User],
+				entities: [User, Entry],
 				synchronize: true,
 			}),
 			inject: [ConfigService],
 		}),
 		UsersModule,
 		AuthModule,
+		EntriesModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],
