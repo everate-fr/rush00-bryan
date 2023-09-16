@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { IApiService } from './iapi.service';
 import { environment } from 'src/environment/environment';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+    providedIn: 'root',
+})
 export class ApiService implements IApiService {
 
     constructor(

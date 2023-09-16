@@ -1,6 +1,10 @@
+import { Injectable } from "@angular/core";
 import { IApiService } from "../api/iapi.service";
 import { IAuthenticationService } from "./iauthentication.service";
 
+@Injectable({
+    providedIn: 'root',
+})
 export class AuthenticationService implements IAuthenticationService {
 
     constructor(

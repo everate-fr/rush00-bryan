@@ -10,8 +10,9 @@ services:
     #  - rush00_back
     build:
       context: ./front
-    command: npm start
     restart: always
+    ports:
+      - 4200:4200
 
 # Back
   db:
