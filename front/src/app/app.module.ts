@@ -5,6 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
+import { IAuthenticationService } from './services/authentication/iauthentication.service';
+import { AuthenticationService } from './services/authentication/authentication.service';
+import { IApiService } from './services/api/iapi.service';
+import { ApiService } from './services/api/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,9 +20,14 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: IAuthenticationService, useClass: AuthenticationService },
+    { provide: IApiService, useClass: ApiService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
