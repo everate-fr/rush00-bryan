@@ -16,8 +16,8 @@ jobs:
 
       - name: Restore dependencies
         run: npm install
-        working-directory: ./app
+        working-directory: ./front
         
       - name: Npm run lint
         run: npm run lint
-        working-directory: ./app
+        working-directory: ./front
