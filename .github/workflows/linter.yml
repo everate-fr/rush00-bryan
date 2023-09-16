@@ -5,13 +5,14 @@ on:
 jobs:
   run-lint:
     runs-on: ubuntu-latest
-    working-directory: ./front
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Restore dependencies
         run: npm install
+        working-directory: ./app
         
       - name: Npm run lint
         run: npm run lint
+        working-directory: ./app
