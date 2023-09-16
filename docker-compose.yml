@@ -6,8 +6,8 @@ services:
 
   rush00_front:
     container_name: rush00
-    #depends_on:
-    #  - rush00_back
+    depends_on:
+      - backend
     build:
       context: ./front
     restart: always
