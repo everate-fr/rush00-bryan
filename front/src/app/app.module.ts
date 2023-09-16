@@ -11,11 +11,11 @@ import { AuthenticationService } from './services/authentication/authentication.
 import { IApiService } from './services/api/iapi.service';
 import { ApiService } from './services/api/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginModule } from './pages/auth/login/login.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     DashboardComponent
   ],
   imports: [
@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    LoginModule,
   ],
   providers: [
     { provide: IAuthenticationService, useClass: AuthenticationService },
