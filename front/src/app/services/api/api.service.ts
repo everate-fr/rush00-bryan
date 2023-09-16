@@ -1,5 +1,6 @@
-import { HttpClient } from "@angular/common/http";
-import { IApiService } from "./iapi.service";
+import { HttpClient } from '@angular/common/http';
+import { IApiService } from './iapi.service';
+import { environment } from 'src/environment/environment';
 
 export class ApiService implements IApiService {
 
@@ -8,6 +9,7 @@ export class ApiService implements IApiService {
     ) { }
 
     public async callApi<T>(url: string, method: string, body: any): Promise<T> {
-        return new Promise(resolve => this._http.request<T>(method, url, { body }).subscribe(x => resolve(x)));
+        return new Promise(resolve => this._http.request<T>(method, environment.apiBaseUrl + url, { body })
+            .subscribe(x => resolve(x)));
     }
 }
