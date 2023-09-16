@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+
+# Front
+
+  rush00_front:
+    container_name: rush00
+    #depends_on:
+    #  - rush00_back
+    build:
+      context: ./front
+    command: npm start
+    restart: always

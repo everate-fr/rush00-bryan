@@ -9,7 +9,7 @@ export class AuthenticationService implements IAuthenticationService {
     
     
     public async login(username: string, password: string): Promise<boolean> {
-        const test = await this._apiService.callApi<boolean>("/api/login", "POST", { username, password });
+        const test = await this._apiService.callApi<boolean>("login", "POST", { username, password });
 
         return true;
     }
