@@ -1,0 +1,36 @@
+<div class="w-full h-screen flex items-center justify-center flex-col p-10 gap-10">
+    <div class="flex flex-col gap-2 w-full">
+        <h1 class="text-[30px] font-medium">Bon retour !</h1>
+        <span class="text-[#b7bcc7] font-medium text-sm">Commencez votre suivi émotionnel avec nous.</span>
+    </div>
+
+    <div class="w-full flex flex-col gap-5">
+        <!-- Login input -->
+        <div class="p-2 bg-[#f6f7f9] rounded-lg flex">
+            <div class="flex items-center justify-center bg-white p-2 rounded-lg w-9 h-9">
+                <i class="fa-solid fa-envelope text-[#61ad88] fa-lg"></i>
+            </div>
+            <input type="email" class="bg-[#f6f7f9] w-full px-5 placeholder-[#b8bdc5] text-md font-normal outline-none" placeholder="test@everate.fr">
+        </div>
+
+        <!-- Password input -->
+        <div class="p-2 bg-[#f6f7f9] rounded-lg flex">
+            <div class="flex items-center justify-center bg-white p-2 rounded-lg w-9 h-9">
+                <i class="fa-solid fa-key text-[#61ad88] fa-lg"></i>
+            </div>
+            <input [type]="passwordShowed ? 'text' : 'password' " class="bg-[#f6f7f9] w-full px-5 placeholder-[#b8bdc5] text-md font-normal outline-none" placeholder="••••••••">
+            <div class="flex items-center justify-center p-2 rounded-lg w-9 h-9" (click)="showPassword()">
+                <i class="fa-solid fa-eye text-[#5c5d61] fa-lg"></i>
+            </div>
+        </div>
+        <div class="flex justify-end">
+            <a href="#" class="text-sm font-semibold text-[#61ad88]">Mot de passe oublié ?</a>
+        </div>
+    </div>
+
+    <div class="w-full">
+        <a href="#" class="text-white p-3 flex items-center justify-center bg-[#61ad88] rounded-lg font-medium">Connexion</a>
+    </div>
+
+    <div class="text-[#a6aab6]">Pas encore de compte ? <a href="#" class="text-[#61ad88] text-sm font-medium">S'enregistrer</a></div>
+</div>
