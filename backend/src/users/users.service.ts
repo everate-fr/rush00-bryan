@@ -42,12 +42,15 @@ export class UsersService {
 		// Sign JWT token
 		const token = this.authService.signUserToken(savedUser);
 
-		return token;
+		return {
+			token,
+		};
 	}
 
 	async login(loginDto: LoginDto) {
 		const user = await this.usersRepository.findOne({
 			where: { username: loginDto.username },
+			select: ['id', 'username', 'password_hash'],
 		});
 		if (!user) throw new BadRequestException('Invalid credentials');
 
@@ -61,7 +64,9 @@ export class UsersService {
 		// Sign JWT token
 		const token = this.authService.signUserToken(user);
 
-		return token;
+		return {
+			token,
+		};
 	}
 
 	async me(id: number) {

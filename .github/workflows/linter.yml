@@ -1,0 +1,23 @@
+name: Lint Code Base
+
+on:
+  pull_request:
+jobs:
+  run-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+
+      - name: Restore dependencies
+        run: npm install
+        working-directory: ./front
+        
+      - name: Npm run lint
+        run: npm run lint
+        working-directory: ./front

@@ -18,6 +18,10 @@ async function bootstrap() {
 	app.useGlobalPipes(
 		new ValidationPipe({ whitelist: true, transform: true }),
 	);
+	app.enableCors({
+		origin: config.get<string>('CORS_ORIGIN'),
+		credentials: true,
+	});
 	await app.listen(config.get<number>('PORT') || 3000, '::');
 }
 bootstrap();

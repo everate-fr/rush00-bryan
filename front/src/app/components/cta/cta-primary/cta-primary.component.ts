@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cta-primary',
@@ -13,7 +13,9 @@ export class CtaPrimaryComponent {
   @Input()
   public disabled: boolean = false;
 
-  public test() {
-    this.disabled = !this.disabled;
+  @Output() onClick: EventEmitter<void> = new EventEmitter<void>(true);
+  
+  public handleClick() {
+    this.onClick.emit();
   }
 }
