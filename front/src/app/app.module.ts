@@ -9,8 +9,9 @@ import { IAuthenticationService } from './services/authentication/iauthenticatio
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { IApiService } from './services/api/iapi.service';
 import { ApiService } from './services/api/api.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginModule } from './pages/auth/login/login.module';
+import { AuthenticationInterceptor } from './services/authentication/authentication-interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,12 @@ import { LoginModule } from './pages/auth/login/login.module';
   ],
   providers: [
     { provide: IAuthenticationService, useClass: AuthenticationService },
-    { provide: IApiService, useClass: ApiService }
+    { provide: IApiService, useClass: ApiService },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })

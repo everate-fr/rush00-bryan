@@ -12,7 +12,7 @@ export class ApiService implements IApiService {
         private readonly _http: HttpClient,
     ) { }
 
-    public async callApi<T>(url: string, method: string, body: any): Promise<T> {
+    public async callApi<T>(url: string, method: string, body?: any): Promise<T> {
         const req = this._http.request<T>(method, environment.apiBaseUrl + url, { body });
 
         return new Promise<T>((resolve, reject) => {
