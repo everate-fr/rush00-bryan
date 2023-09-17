@@ -7,7 +7,6 @@ import { DashboardSidebarModule } from './components/dashboard-sidebar/dashboard
 import { HomeComponent } from './pages/home/home.component';
 import { AccountInfoComponent } from './pages/account-info/account-info.component';
 import { DashboardHomeComponent } from './pages/dashboard-home/dashboard-home.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { IAuthenticationService } from './services/authentication/iauthentication.service';
 import { AuthenticationService } from './services/authentication/authentication.service';
@@ -16,6 +15,7 @@ import { ApiService } from './services/api/api.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginModule } from './pages/auth/login/login.module';
 import { AuthenticationInterceptor } from './services/authentication/authentication-interceptor';
+import { DashboardComponent } from './components/layouts/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +24,12 @@ import { AuthenticationInterceptor } from './services/authentication/authenticat
     HomeComponent,
     AccountInfoComponent,
     DashboardHomeComponent,
-    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    DashboardSidebarModule
+    DashboardSidebarModule,
     FormsModule,
     HttpClientModule,
     LoginModule,
