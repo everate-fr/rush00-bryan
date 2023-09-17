@@ -45,8 +45,7 @@ export class AuthenticationService implements IAuthenticationService {
         let response = null;
         try {
             response = await this._apiService.callApi<User>(AuthenticationEnum.MeRoute, "GET");
-        } catch (_error) {
-        }
+        } catch (_error) { }
 
         return response !== null;
     }

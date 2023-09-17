@@ -1,8 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
 import { PathEnum } from 'src/app/enum/path.enum';
 import { IAuthenticationService } from 'src/app/services/authentication/iauthentication.service';
-import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
 	selector: 'app-login',
